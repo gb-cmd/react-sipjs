@@ -1,20 +1,4 @@
-import { useState } from "react";
-import { RegisterStatus, CONNECT_STATUS, useSIPProvider } from "react-sipjs";
-import { CallSessionItem } from "./CallSessionItem";
-
-export const CallCenter = () => {
-  const {
-    connectAndRegister,
-    sessionManager,
-    sessions,
-    registerStatus,
-    connectStatus,
-  } = useSIPProvider();
-  const [username, setUsername] = useState<string>("test8");
-  const [password, setPassword] = useState<string>("test123");
-
-  const [callTo, setCallTo] = useState<string>("7147520454");
-
+const func = () => {
   return (
     <div className="flex justify-center">
       <div className="min-w-[700px] flex flex-col gap-5">
@@ -115,10 +99,7 @@ export const CallCenter = () => {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            await sessionManager?.call(
-              `sip:${callTo}@voice.chatchilladev.sip.jambonz.cloud`,
-              {}
-            );
+            await sessionManager?.call(`sip:${callTo}@10.101.0.84`, {});
           }}
         >
           <div className="flex flex-col gap-5">
