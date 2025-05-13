@@ -133,7 +133,6 @@ export const SIPProvider = (props: {
       ...mergedSessionManagerOptions,
     });
     setSessionManager(sessionManager);
-    console.log(sessionManager)
     sessionManager.connect();
   }, []);
 
@@ -152,7 +151,7 @@ export const SIPProvider = (props: {
         {children}
       </ProviderContext.Provider>
       <audio ref={refAudioRemote} />
-      <video ref={refVideoRemote} />
+      {/* <video ref={refVideoRemote} /> */}
     </>
   );
 };

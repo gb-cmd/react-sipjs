@@ -23,7 +23,8 @@ export const useSIPProvider = () => {
 };
 
 export const useSessionCall = (sessionId: string) => {
-  if (!sessionId) return null;
+  // if (!sessionId) return null;
+
   const { sessions, sessionManager, sessionTimer } = useSIPProvider();
   const session = sessions[sessionId];
 

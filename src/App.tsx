@@ -3,14 +3,14 @@ import { CallCenter } from "./pages/CallCenter";
 
 function App() {
   return (
-    <div className="w-100 d-flex justify-content-center flex-column align-items-center p-5">
+    <div className="w-100 h-75 d-flex flex-column justify-content-center align-items-center">
       <SIPProvider
         options={{
-          domain: "voice.chatchilladev.sip.jambonz.cloud",
-          webSocketServer: "wss://sip.jambonz.cloud:8443",
+          domain: "10.101.0.84",
+          webSocketServer: "wss://10.101.0.84:8089/ws",
         }}
       >
-        <div className="w-100">
+        <div className="w-100 h-100">
           <CallCenter />
         </div>
       </SIPProvider>
