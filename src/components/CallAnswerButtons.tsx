@@ -6,7 +6,7 @@ import { useSessionCall } from "../libs";
 
 export const CallAnswerButtons = (props: { sessionId: string }) => {
   const { sessionId } = props;
-
+  
   const sessionCall = useSessionCall(sessionId);
 
   if (sessionCall === null) {
