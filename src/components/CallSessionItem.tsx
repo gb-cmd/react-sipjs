@@ -9,6 +9,7 @@ import {
   CAccordionItem,
 } from "@coreui/react";
 import "./index.css";
+import { CallAnswerButtons } from "./CallAnswerButtons";
 
 export const CallSessionItem = (props: { sessionId: string }) => {
   const { sessionId } = props;
@@ -20,6 +21,8 @@ export const CallSessionItem = (props: { sessionId: string }) => {
   }
 
   const { session, direction, timer } = sessionCall;
+
+  console.log(session);
 
   return (
     <CAccordionItem className="w-100">
@@ -36,7 +39,6 @@ export const CallSessionItem = (props: { sessionId: string }) => {
             ID Chamada: {session.id}
           </p>
 
-          {/* <CallAnswerButtons key={sessionId} sessionId={sessionId} /> */}
         </div>
 
         <div className="w-25 d-flex flex-column align-items-start gap-4">
