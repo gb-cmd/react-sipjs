@@ -1,7 +1,7 @@
 import { SessionState } from "sip.js";
 import { useSessionCall, SessionDirection } from "../libs";
 import { CallTimer } from "./CallTimer";
-import { PiPhoneIncomingLight, PiPhoneOutgoingLight } from "react-icons/pi";
+import { PiPhoneIncomingFill, PiPhoneOutgoingFill } from "react-icons/pi";
 // import { CallAnswerButtons } from "./CallAnswerButtons";
 import {
   CAccordionBody,
@@ -9,7 +9,7 @@ import {
   CAccordionItem,
 } from "@coreui/react";
 import "./index.css";
-import { CallAnswerButtons } from "./CallAnswerButtons";
+// import { CallAnswerButtons } from "./CallAnswerButtons";
 
 export const CallSessionItem = (props: { sessionId: string }) => {
   const { sessionId } = props;
@@ -22,27 +22,39 @@ export const CallSessionItem = (props: { sessionId: string }) => {
 
   const { session, direction, timer } = sessionCall;
 
-  console.log(session);
-
   return (
     <CAccordionItem className="w-100">
       <CAccordionHeader className="w-100">
-        <p className="mb-0">Chamada #</p>
+        {direction === SessionDirection.INCOMING ? (
+              <div className="d-flex justify-content-center gap-1">
+                <PiPhoneIncomingFill 
+                  style={{ width: "1rem", height: "1rem", marginRight: '.5rem', backgroundColor: '#229741'}}
+                />
+                <p>Chamada entrante</p>
+              </div>
+            ) : (
+              <div className="d-flex align-items-center justify-content-center gap-1">
+                <PiPhoneOutgoingFill
+                  style={{ width: "1.2rem", height: "1.2rem", marginRight: '.5rem', color: '#de5a5a'}}
+                />
+                <p className="text-center mb-0" >Chamada sainte</p>
+              </div>
+            )}
       </CAccordionHeader>
 
-      <CAccordionBody>
-        <div className="w-75 me-3">
+      <CAccordionBody className="d-flex justify-content-between p-3">
+        <div className="w-50 me-3 d-flex align-items-center">
           <p
-            className="text-break text-truncate fw-semibold lh-sm"
-            style={{ fontSize: "0.9rem" }}
+            className="text-break fw-medium mb-0 lh-sm"
+            style={{ fontSize: "0.86rem" }}
           >
             ID Chamada: {session.id}
           </p>
 
         </div>
 
-        <div className="w-25 d-flex flex-column align-items-start gap-4">
-          <p className="mb-0 fw-light" style={{ fontSize: "0.86rem" }}>
+        <div className="w-25">
+          <p className="mb-1 fw-light" style={{ fontSize: "0.86rem" }}>
             Duration:
             {timer?.answeredAt && (
               <CallTimer
@@ -55,21 +67,7 @@ export const CallSessionItem = (props: { sessionId: string }) => {
             className="d-flex align-items-center justify-content-start"
             style={{ fontSize: "0.86rem" }}
           >
-            {direction === SessionDirection.INCOMING ? (
-              <div className="d-flex justify-content-center gap-1">
-                <PiPhoneIncomingLight
-                  style={{ width: "1rem", height: "1rem" }}
-                />
-                <p className="mb-0 fw-light">Chamada de entrada</p>
-              </div>
-            ) : (
-              <div className="d-flex align-items-center justify-content-center gap-1">
-                <PiPhoneOutgoingLight
-                  style={{ width: "1.2rem", height: "1.2rem" }}
-                />
-                <p className="mb-0 fw-light">Chamada de saída</p>
-              </div>
-            )}
+            
           </div>
         </div>
       </CAccordionBody>

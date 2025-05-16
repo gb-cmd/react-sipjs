@@ -20,7 +20,7 @@ export const SoftphoneCallsHistory = () => {
 
   return (
     <div className="h-100">
-      <h4 style={customTitle}>Chamadas</h4>
+      <h4 style={customTitle}>Recentes</h4>
       <div
         className=" h-100 d-flex flex-column align-items-center justify-content-center"
       >

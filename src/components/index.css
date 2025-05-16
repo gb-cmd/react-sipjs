@@ -1,3 +1,8 @@
-.accordion-button {
-    padding: .85rem
+:root {
+    /* --bs-primary-bg-subtle: #999999 !important; */
+}
+
+.accordion {
+    --accordion-btn-padding-y: 2rem !important; 
+    --accordion-btn-padding-x: 2rem !important;
 }
